@@ -1,5 +1,7 @@
 package entidades;
 
+import java.util.List;
+
 public abstract class Personaje {
 
     protected String nombre;
@@ -87,7 +89,7 @@ public abstract class Personaje {
      * Metodo abstracto para usar la habilidad especial del personaje.
      * @param objetivo
      */
-    public abstract void usarHabilidadEspecial(Personaje objetivo);
+    public abstract void usarHabilidadEspecial(Personaje objetivo, List<Personaje> objetivosCercanos);
 
     /**
      * Metodo para atacar a otro personaje, calculando el daño basado en el ataque del atacante y la defensa del objetivo.
