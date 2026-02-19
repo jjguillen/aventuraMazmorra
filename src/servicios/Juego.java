@@ -32,15 +32,15 @@ public class Juego {
         Heroe h1 = new Heroe("Gandalf", TipoHeroe.MAGO);
         h1.agregarItem(new Item("Poción de Bombadil", TipoItem.POCION_GRANDE));
         h1.equiparArmadura(new Armadura("Capucha de Moria", TipoArmadura.CASCO,
-                5, 0));
+                3, 0));
         Heroe h2 = new Heroe("Legolas", TipoHeroe.ARQUERO);
         h2.agregarItem(new Item("Poción Arundilo", TipoItem.POCION_PEQUENA));
         h2.equiparArmadura(new Armadura("Guanteletes de Lothlorien", TipoArmadura.GUANTELETES,
-                2, 6));
+                2, 2));
         Heroe h3 = new Heroe("Aragorn", TipoHeroe.GUERRERO);
         h3.agregarItem(new Item("Elixir de Vida", TipoItem.ELIXIR));
         h3.equiparArmadura(new Armadura("Escudo de Mordor", TipoArmadura.ESCUDO,
-                10,0));
+                5,1));
         equipo.add(h1);
         equipo.add(h2);
         equipo.add(h3);

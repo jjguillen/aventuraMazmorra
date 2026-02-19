@@ -16,21 +16,21 @@ public class Enemigo extends Personaje {
                 this.setPuntosVidaMax(30);
                 this.setPuntosVidaActual(30);
                 this.setAtaque(12); //8
-                this.setDefensa(3);
+                this.setDefensa(5);
                 this.expOtorgada = 20;
             }
             case ORCO -> {
                 this.setPuntosVidaMax(60);
                 this.setPuntosVidaActual(60);
                 this.setAtaque(20); //15
-                this.setDefensa(8);
+                this.setDefensa(10);
                 this.expOtorgada = 40;
             }
             case DRAGON -> {
                 this.setPuntosVidaMax(150);
                 this.setPuntosVidaActual(150);
-                this.setAtaque(25);
-                this.setDefensa(12);
+                this.setAtaque(30); //25
+                this.setDefensa(15);
                 this.expOtorgada = 100;
             }
         }
