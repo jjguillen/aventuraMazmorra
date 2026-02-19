@@ -3,11 +3,12 @@ package servicios;
 import entidades.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Juego {
 
-    private ArrayList<Heroe> equipo; // (los 3 héroes del jugador)
-    private ArrayList<Sala> salas; // (las 5 salas de la mazmorra)
+    private final List<Heroe> equipo; // (los 3 héroes del jugador)
+    private final List<Sala> salas; // (las 5 salas de la mazmorra)
     private int salaActual; // (1-5)
     private boolean juegoTerminado;
 
