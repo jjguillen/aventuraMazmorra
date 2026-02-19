@@ -94,7 +94,9 @@ public class Juego {
             IO.println("--- SALA " + salaActual + " ---");
 
             //Iniciar combate
-            Combate combate = new Combate(this.equipo, sala);
+            Combate combate = new Combate(this.equipo
+                    .stream().map(h -> (Personaje) h).toList(),
+                    sala);
             combate.iniciarCombate();
 
             //Verificar resultado y si corresponde avanzar a la siguiente sala

@@ -73,25 +73,4 @@ public class Enemigo extends Personaje {
 
     }
 
-    /**
-     * Mejora para que el Dragón cuando se queda con menos de 40
-     * va aumentando su daño en 5 cada vez que recibe un nuevo golpe
-     * @param danio
-     */
-    @Override
-    public void recibirDanio(int danio) {
-        //Quitamos vida al enemigo
-        this.setPuntosVidaActual(this.getPuntosVidaActual() - danio);
-
-        if (this.tipo == TipoEnemigo.DRAGON) {
-            if (this.getPuntosVidaActual() < 40) {
-                this.setAtaque(this.ataque + 5);
-            }
-        }
-
-        //Si ha perdido todas su vida, lo marcamos como muerto
-        if (this.getPuntosVidaActual() <= 0) {
-            this.setVivo(false);
-        }
-    }
 }

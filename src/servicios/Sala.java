@@ -1,9 +1,11 @@
 package servicios;
 
 import entidades.Enemigo;
+import entidades.Personaje;
 import entidades.TipoEnemigo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sala {
 
@@ -101,8 +103,8 @@ public class Sala {
      * Devuelve una lista con los enemigos vivos.
      * @return ArrayList<Enemigo>
      */
-    public ArrayList<Enemigo> getEnemigosVivos() {
-        ArrayList<Enemigo> enemigosVivos = new ArrayList<>();
+    public List<Personaje> getEnemigosVivos() {
+        ArrayList<Personaje> enemigosVivos = new ArrayList<>();
         for(Enemigo e : enemigos) {
             if(e.estaVivo()) enemigosVivos.add(e);
         }
