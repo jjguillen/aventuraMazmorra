@@ -15,6 +15,7 @@ public class Heroe extends Personaje {
         this.nivel = 1;
         this.experiencia = 0;
         this.tipoHeroe = tipoHeroe;
+        this.inventario = new ArrayList<>();
 
         switch (tipoHeroe) {
             case GUERRERO:

@@ -17,7 +17,7 @@ public abstract class Personaje {
         this.puntosVidaActual = puntosVidaMax;
         this.ataque = ataque;
         this.defensa = defensa;
-        this.vivo = false;
+        this.vivo = true;
     }
 
     public String getNombre() {

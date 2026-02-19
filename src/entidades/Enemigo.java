@@ -13,14 +13,14 @@ public class Enemigo extends Personaje {
             case GOBLIN -> {
                 this.setPuntosVidaMax(30);
                 this.setPuntosVidaActual(30);
-                this.setAtaque(8);
+                this.setAtaque(12); //8
                 this.setDefensa(3);
                 this.expOtorgada = 20;
             }
             case ORCO -> {
                 this.setPuntosVidaMax(60);
                 this.setPuntosVidaActual(60);
-                this.setAtaque(15);
+                this.setAtaque(20); //15
                 this.setDefensa(8);
                 this.expOtorgada = 40;
             }

@@ -80,7 +80,7 @@ public class Combate {
         for(Heroe h : heroes) {
             if (h.estaVivo()) {
                 if (!this.sala.getEnemigosVivos().isEmpty())
-                    this.sala.getEnemigosVivos().getFirst().atacar(h);
+                    h.atacar(this.sala.getEnemigosVivos().getFirst());
             }
         }
     }
@@ -96,6 +96,7 @@ public class Combate {
                 aleatorio = (int) (Math.random() * heroes.size());
             } while (!heroes.get(aleatorio).estaVivo());
             e.atacar(heroes.get(aleatorio));
+            IO.println("[Combate - turnoEnemigos] - Han atacoado a " + heroes.get(aleatorio).getNombre());
         }
     }
 

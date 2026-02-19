@@ -65,7 +65,7 @@ public class Juego {
                 opcion = Integer.parseInt(IO.readln());
                 switch (opcion) {
                     case 1 -> {
-                        IO.println(equipo);
+                        pintarEquipo();
                     }
                     case 2 -> {
                         for (Heroe h : equipo) {
@@ -158,15 +158,24 @@ public class Juego {
             IO.println("--- FIN DEL JUEGO ---");
             IO.println("--- HÉROES GANAN ---");
             IO.println("--- Estado Equipo ---");
-            IO.println(equipo);
+            pintarEquipo();
             IO.println("--- Todas las salas completadas ---");
         } else {
             IO.println("--- FIN DEL JUEGO ---");
             IO.println("--- ENEMIGOS GANAN ---");
             IO.println("--- Estado Equipo ---");
-            IO.println(equipo);
+            pintarEquipo();
             IO.println("--- Sala donde quedaron ---");
             IO.println(salaActual);
+        }
+    }
+
+    private void pintarEquipo() {
+        for(Heroe h : equipo) {
+            IO.println(h.getNombre() + ", " + h.getTipoHeroe() +
+                    ", vida: " + h.getPuntosVidaActual() +
+                    ", nivel: " + h.getNivel() +
+                    ", exp: " + h.getExperiencia());
         }
     }
 
