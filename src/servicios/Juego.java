@@ -1,9 +1,6 @@
 package servicios;
 
-import entidades.Heroe;
-import entidades.Item;
-import entidades.TipoHeroe;
-import entidades.TipoItem;
+import entidades.*;
 
 import java.util.ArrayList;
 
@@ -34,10 +31,16 @@ public class Juego {
         //Equipo predefinido con una poción cada uno (luego podemos añadir más)
         Heroe h1 = new Heroe("Gandalf", TipoHeroe.MAGO);
         h1.agregarItem(new Item("Poción de Bombadil", TipoItem.POCION_GRANDE));
+        h1.equiparArmadura(new Armadura("Capucha de Moria", TipoArmadura.CASCO,
+                5, 0));
         Heroe h2 = new Heroe("Legolas", TipoHeroe.ARQUERO);
         h2.agregarItem(new Item("Poción Arundilo", TipoItem.POCION_PEQUENA));
+        h2.equiparArmadura(new Armadura("Guanteletes de Lothlorien", TipoArmadura.GUANTELETES,
+                2, 6));
         Heroe h3 = new Heroe("Aragorn", TipoHeroe.GUERRERO);
         h3.agregarItem(new Item("Elixir de Vida", TipoItem.ELIXIR));
+        h3.equiparArmadura(new Armadura("Escudo de Mordor", TipoArmadura.ESCUDO,
+                10,0));
         equipo.add(h1);
         equipo.add(h2);
         equipo.add(h3);
@@ -173,9 +176,11 @@ public class Juego {
     private void pintarEquipo() {
         for(Heroe h : equipo) {
             IO.println(h.getNombre() + ", " + h.getTipoHeroe() +
-                    ", vida: " + h.getPuntosVidaActual() +
-                    ", nivel: " + h.getNivel() +
-                    ", exp: " + h.getExperiencia());
+                    ", vid: " + h.getPuntosVidaActual() +
+                    ", niv: " + h.getNivel() +
+                    ", exp: " + h.getExperiencia() +
+                    ", def: " + h.getDefensa() +
+                    ", atq: " + h.getAtaque());
         }
     }
 

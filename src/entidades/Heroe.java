@@ -9,6 +9,12 @@ public class Heroe extends Personaje {
     private Integer nivel;
     private Integer experiencia;
     private ArrayList<Item> inventario;
+    // Equipo
+    private Armadura casco;
+    private Armadura cota;
+    private Armadura grebas;
+    private Armadura guanteletes;
+    private Armadura escudo;
 
     public Heroe(String nombre, TipoHeroe tipoHeroe) {
         super(nombre, 0,0,0);
@@ -127,6 +133,62 @@ public class Heroe extends Personaje {
     public void agregarItem(Item item) {
         this.inventario.add(item);
     }
+
+    /**
+     * Equipa una armadura a un héroe
+     * Si ya llevaba en esa posición primero le quita los bonus
+     * Luego le pone la nueva pieza de armadura y le aplica los bonus nuevos
+     * @param armadura
+     */
+    public void equiparArmadura(Armadura armadura) {
+
+        switch (armadura.getTipo()) {
+
+            case CASCO:
+                quitarBonus(this.casco);
+                this.casco = armadura;
+                break;
+
+            case COTA:
+                quitarBonus(this.cota);
+                this.cota = armadura;
+                break;
+
+            case GREBAS:
+                quitarBonus(this.grebas);
+                this.grebas = armadura;
+                break;
+
+            case GUANTELETES:
+                quitarBonus(this.guanteletes);
+                this.guanteletes = armadura;
+                break;
+
+            case ESCUDO:
+                quitarBonus(this.escudo);
+                this.escudo = armadura;
+                break;
+        }
+
+        aplicarBonus(armadura);
+
+        System.out.println(nombre + " ha equipado " + armadura.getNombre());
+    }
+
+    private void aplicarBonus(Armadura armadura) {
+        if (armadura != null) {
+            this.defensa += armadura.getBonusDefensa();
+            this.ataque += armadura.getBonusAtaque();
+        }
+    }
+
+    private void quitarBonus(Armadura armadura) {
+        if (armadura != null) {
+            this.defensa -= armadura.getBonusDefensa();
+            this.ataque -= armadura.getBonusAtaque();
+        }
+    }
+
 
 
 }

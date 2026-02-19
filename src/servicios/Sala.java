@@ -47,15 +47,15 @@ public class Sala {
                 if (aleatorio == 1) {
                     Enemigo orco1 = new Enemigo("Orco 1", TipoEnemigo.ORCO);
                     Enemigo goblin = new Enemigo("Goblin", TipoEnemigo.GOBLIN);
-                    enemigos.add(orco1);
                     enemigos.add(goblin);
+                    enemigos.add(orco1);
                 } else {
                     Enemigo orco1 = new Enemigo("Orco 1", TipoEnemigo.ORCO);
                     Enemigo orco2 = new Enemigo("Orco 2", TipoEnemigo.ORCO);
                     Enemigo goblin = new Enemigo("Goblin", TipoEnemigo.GOBLIN);
                     enemigos.add(orco1);
-                    enemigos.add(orco2);
                     enemigos.add(goblin);
+                    enemigos.add(orco2);
                 }
             }
             case 5 -> {
@@ -63,9 +63,9 @@ public class Sala {
                 Enemigo dragon = new Enemigo("Dragon", TipoEnemigo.DRAGON);
                 Enemigo orco1 = new Enemigo("Orco 1", TipoEnemigo.ORCO);
                 Enemigo orco2 = new Enemigo("Orco 2", TipoEnemigo.ORCO);
-                enemigos.add(dragon);
                 enemigos.add(orco1);
                 enemigos.add(orco2);
+                enemigos.add(dragon);
             }
         }
     }

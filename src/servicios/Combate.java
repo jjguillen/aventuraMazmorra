@@ -64,7 +64,8 @@ public class Combate {
             IO.println("No hay enemigos vivos.");
         } else {
             for (Enemigo e : enemigosVivos) {
-                IO.println(e.getNombre() + " -> " + e.getPuntosVidaActual());
+                IO.println(e.getNombre() + " (atq: " + e.getAtaque() +
+            ") -> " + e.getPuntosVidaActual());
             }
         }
         IO.println("--- HÉROES ---");
@@ -79,8 +80,12 @@ public class Combate {
     public void turnoHeroes() {
         for(Heroe h : heroes) {
             if (h.estaVivo()) {
-                if (!this.sala.getEnemigosVivos().isEmpty())
+                if (!this.sala.getEnemigosVivos().isEmpty()) {
+                    IO.println("[Combate - turnoHeroes] - " + h.getNombre() +
+                            " ha atacado a " + this.sala.getEnemigosVivos().getFirst().getNombre());
+
                     h.atacar(this.sala.getEnemigosVivos().getFirst());
+                }
             }
         }
     }
@@ -94,9 +99,13 @@ public class Combate {
             IO.println("[Combate - turnoEnemigos] - Buscando héroe vivo para atacar ... ");
             do {
                 aleatorio = (int) (Math.random() * heroes.size());
-            } while (!heroes.get(aleatorio).estaVivo());
+            } while (!heroes.get(aleatorio).estaVivo() && quedanHeroes());
+
+            if (!quedanHeroes()) break;
+
             e.atacar(heroes.get(aleatorio));
-            IO.println("[Combate - turnoEnemigos] - Han atacoado a " + heroes.get(aleatorio).getNombre());
+            IO.println("[Combate - turnoEnemigos] - " + e.getNombre() +
+                    " ha atacado a " + heroes.get(aleatorio).getNombre());
         }
     }
 
@@ -119,12 +128,23 @@ public class Combate {
               }
               //Calcular la experiencia a repartir
               int expPorHeroe = experiencia / heroesVivos;
+              IO.println("Experiencia otorgada: " + experiencia);
+
               //Asignamos la experiencia a cada héroe vivo
               for(Heroe h : heroes) {
                   if (h.estaVivo())
                       h.ganarExperiencia(expPorHeroe);
               }
           }
+    }
+
+    private boolean quedanHeroes() {
+        for(Heroe h : this.heroes) {
+            if (h.estaVivo()) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
